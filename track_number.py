@@ -3,11 +3,15 @@ from phonenumbers import geocoder
 from phonenumbers import carrier 
 import folium 
 from opencage.geocoder import OpenCageGeocode
+import os
+from dotenv import load_dotenv, dotenv_values
+
+load_dotenv()
 
 number = input("Enter the PhoneNumber with the country code : ")
 phoneNumber = phonenumbers.parse(number)
  
-Key = "xxxxxxxx"  #Enter the geocode api
+Key = os.getenv(se_api)  #Enter the geocode api
  
 yourLocation = geocoder.description_for_number(phoneNumber,"en")
 print("location : "+yourLocation)
